@@ -1,0 +1,47 @@
+﻿@model  List<WebApplication3.Models.StudentInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    table {
+        border-collapse: collapse;
+        border: solid 1px black;
+    }
+    table th, table td {
+        border: solid 1px black;
+        padding: 10px;
+    }
+</style>
+<div>
+    @Html.ActionLink("Thêm mới","Create")
+</div>
+
+<h2>TestListModel</h2>
+
+<h2>View @Session["User"]</h2>
+<table>
+    <tr>
+        <th>@Html.DisplayNameFor(m => m[0].Id)</th>
+        <th>@Html.DisplayNameFor(m => m[0].Avatar)</th>
+        <th>@Html.DisplayNameFor(m => m[0].Name)</th>
+        <th>@Html.DisplayNameFor(m => m[0].BirthDay)</th>
+        <th>@Html.DisplayNameFor(m => m[0].Mark)</th>
+        <th>@Html.DisplayNameFor(m => m[0].Note)</th>
+    </tr>
+    @{
+        for (int i = 0; i<Model.Count; i++)
+        {
+        <tr>
+            <td>@Model[i].Id</td>
+            <td><img src="@Model[i].Avatar" width="100px" />   </td>
+            <td>@Model[i].Name</td>
+            <td>@Html.FormatValue(@Model[i].BirthDay,"{0:dd/MM/yyyy}")</td>
+            <td>@Model[i].Mark</td>
+            <td>@Model[i].Note</td>
+
+            <td>@Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model[i].Id })</td>
+        </tr>
+        }
+    }
+</table>

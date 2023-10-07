@@ -1,0 +1,28 @@
+﻿@model WebApplication3.Models.StudentInfo
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm())
+{
+    <div>
+       
+        @Html.HiddenFor(m => m.Id)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Pwd)
+        @Html.PasswordFor(m => m.Pwd)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Mark)
+        @Html.TextBoxFor(m => m.Mark)
+    </div>
+
+}
+

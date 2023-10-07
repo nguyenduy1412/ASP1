@@ -1,0 +1,17 @@
+﻿
+
+@{ 
+    var number= 123456.8765;
+}
+<p>
+    Đơn giá là : @Html.FormatValue(number,"{0:#,###.##0}")
+</p>
+<h2>Login</h2>
+<div>
+    @using(Html.BeginForm())
+    {
+        <label>Quyền truy cập</label>
+        @Html.DropDownList("Roles","Lựa chọn quyền truy cập")
+    }
+</div>
+    
